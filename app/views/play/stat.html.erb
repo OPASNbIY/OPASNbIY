@@ -1,0 +1,31 @@
+<h1>Статистика</h1>
+
+<table border="1" cellpadding="10">
+	<tr>
+		<td>№</td>
+		<td>Выиграл</td>
+		<td>Браузер ходил раз</td>
+		<td>У браузера палочек</td>
+		<td>Сервер ходил раз</td>
+		<td>У сервера палочек</td>
+		<td>Дата игры</td>
+	</tr>
+	<% @stat.each do |game| %>
+		<tr>
+			<td><%= game.id %></td>
+			
+			<% if(game.game_winner == 1) %>
+				<td>Браузер</td>
+			<% else %>
+				<td>Сервер</td>
+			<% end %>
+			
+			<td><%= game.game_browser_move_count %></td>
+			<td><%= game.game_browser_stick_count %></td>
+			<td><%= game.game_server_move_count %></td>
+			<td><%= game.game_server_stick_count %></td>
+			
+			<td><%= game.created_at %></td>
+		</tr>
+	<% end %>
+</table>
